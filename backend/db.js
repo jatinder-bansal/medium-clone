@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const url =
-  "mongodb+srv://root:root@cluster0.0e9rx7f.mongodb.net/?retryWrites=true&w=majority";
+  "";
 module.exports.connect = () => {
   mongoose
     .connect(url, {
