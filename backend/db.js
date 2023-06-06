@@ -1,15 +1,18 @@
 const mongoose = require("mongoose");
+var mongoURL = process.env.MONGO_URL;
 
-const url =
-  process.env.MONGO_URL;
-module.exports.connect = () => {
-  mongoose
-    .connect(url, {
-      useNewUrlParser: true,
-      // useFindAndModify: false,
-      useUnifiedTopology: true,
-      // useCreateIndex: true,
-    })
-    .then(() => console.log("MongoDB is connected successfully"))
-    .catch((err) => console.log("Error: ", err));
-};
+mongoose.connect(mongoURL, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  // useFindAndModify: false,
+});
+
+var connection = mongoose.connection;
+
+connection.on("error", () => {
+  console.log("Mongo DB connection Failed");
+});
+
+connection.on("uconnected", () => {
+  console.log("Mongo DB connection Successfull");
+});
