@@ -24,7 +24,7 @@ const Index = ({userDetails}) => {
    useEffect(() => {
     if(id){
         setLoading(true)
-        axios.get(`/api/stories/${id}`).then((res) => {
+        axios.get(`https://medium-clone-api.vercel.app/api/stories/${id}`).then((res) => {
             console.log(res.data.data);
             setSingleB(res.data.data)
             setLoading(false)

@@ -17,7 +17,7 @@ const LandingMainPage = ({userDetails}) => {
   useEffect(() => {
     async function getStories() {
       await axios
-        .get("/api/stories")
+        .get("https://medium-clone-api.vercel.app/api/stories")
         .then((res) => {
           // console.log(res.data.data);
           setLoading(false);

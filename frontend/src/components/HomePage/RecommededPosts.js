@@ -10,7 +10,7 @@ const RecommededPosts = () => {
   useEffect(() => {
     async function getStories() {
       await axios
-        .get("/api/stories")
+        .get("https://medium-clone-api.vercel.app/api/stories")
         .then((res) => {
           // console.log(res.data.data);
           setStories(res.data.data?.slice(0, 9));

@@ -32,7 +32,7 @@ function App() {
         );
         async function getUser() {
               await axios
-                .get(`/api/user/${authUser?.email}`)
+                .get(`https://medium-clone-api.vercel.app/api/user/${authUser?.email}`)
                 .then(async (res) => {
                   console.log(res.data);
                   if (res.data.status) {
@@ -58,7 +58,7 @@ function App() {
                       photoURL: authUser?.photoURL,
                     };
                     await axios
-                      .post("/api/user", body, confHeader)
+                      .post("https://medium-clone-api.vercel.app/api/user", body, confHeader)
                       .then((res) => {
                         console.log(res.data);
                         setUserDetails(res.data?.data)
